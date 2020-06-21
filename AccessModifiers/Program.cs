@@ -37,4 +37,8 @@ namespace AccessModifiers
     {
         public String Name { get; set; }
     }
+    public class Job2
+    {
+        public String Name { get; set; }
+    }
 }
