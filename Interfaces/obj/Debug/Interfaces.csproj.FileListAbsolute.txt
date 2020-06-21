@@ -1,0 +1,7 @@
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\bin\Debug\Interfaces.exe.config
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\bin\Debug\Interfaces.exe
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\obj\Debug\Interfaces.csprojAssemblyReference.cache
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\obj\Debug\Interfaces.exe
+C:\Users\aiyil\source\repos\CSharpCourse\Interfaces\obj\Debug\Interfaces.pdb

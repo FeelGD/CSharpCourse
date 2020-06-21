@@ -10,6 +10,35 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
+            PersonManager manager = new PersonManager();
+            Customer customer = new Customer
+            {
+                Id = 1,
+                FirstName = "AliC",
+                LastName = "Yıldız",
+                Address = "Ankara"
+            };
+
+            Student student = new Student
+            {
+                Id = 1,
+                FirstName = "AliS",
+                LastName = "Yıldız",
+                Departmant = "Computer Science"
+            };
+            Worker worker = new Worker
+            {
+                Id = 1,
+                FirstName = "AliW",
+                LastName = "Yıldız",
+                Departmant = "Computer Science"
+            };
+
+
+            manager.Add(student);
+            manager.Add(customer);
+            manager.Add(worker);
+            Console.ReadLine();
         }
     }
     //isimlendirme 'I' ile başlatılır
@@ -17,24 +46,45 @@ namespace Interfaces
     interface IPerson
     {
         int Id { get; set; }
-        int FirstName { get; set; }
-        int LastName { get; set; }
+        string FirstName { get; set; }
+        string LastName { get; set; }
     }
 
     //somut nesneler Customer Student
     class Customer : IPerson
     {
         public int Id { get; set; }
-        public int FirstName { get; set; }
-        public int LastName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
         public string Address { get; set; }
     }
     class Student : IPerson
     {
         public int Id { get; set; }
-        public int FirstName { get; set; }
-        public int LastName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
         public string Departmant { get; set; }
+
+    }
+    class Worker : IPerson
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public string Departmant { get; set; }
+
+    }
+    //manager genellikle iş katmanı sınıfları için kullanılır.
+    class PersonManager
+    {
+        public void Add(IPerson person)
+        {
+            Console.WriteLine(person.FirstName);
+        }
     }
 
-}
+
+} 
