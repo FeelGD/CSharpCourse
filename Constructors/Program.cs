@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,12 @@ namespace Constructors
             Product product = new Product { Id = 1, Name = "Laptop" };
             Product product2 =new Product();
             Product product3 = new Product(2,"Laptop");
+
+            EmployeeManager employeeManager=new EmployeeManager(new DatabaseLogger());
+            employeeManager.Add();
+            EmployeeManager employeeManager2 = new EmployeeManager(new FileLogger());
+            employeeManager2.Add();
+
 
 
             Console.ReadLine();
@@ -79,5 +86,39 @@ namespace Constructors
         }
         public int Id { get; set; }
         public string Name { get; set; }
+    }
+
+    interface ILogger
+    {
+        void Log();
+    }
+
+    class DatabaseLogger:ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged to database!");
+        }
+    }
+    class FileLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged to file!");
+        }
+    }
+
+    class EmployeeManager
+    {
+        private ILogger _logger;
+        public EmployeeManager(ILogger logger)
+        {
+            _logger = logger;
+        }
+        public void Add()
+        {
+            _logger.Log();
+            Console.WriteLine("Added!");
+        }
     }
 }
