@@ -18,17 +18,33 @@ namespace Constructors
 
 
             Product product = new Product { Id = 1, Name = "Laptop" };
-            Product product2 =new Product();
-            Product product3 = new Product(2,"Laptop");
+            Product product2 = new Product();
+            Product product3 = new Product(2, "Laptop");
 
-            EmployeeManager employeeManager=new EmployeeManager(new DatabaseLogger());
+
+            EmployeeManager employeeManager = new EmployeeManager(new DatabaseLogger());
             employeeManager.Add();
             EmployeeManager employeeManager2 = new EmployeeManager(new FileLogger());
             employeeManager2.Add();
 
 
-            PersonManager personManager=new PersonManager("Product");
+            PersonManager personManager = new PersonManager("Product");
             personManager.Add();
+
+
+            Teacher.Number = 10;
+
+
+            Utilities.Validate();
+
+
+            Manager.DoSmt();
+            Manager manager = new Manager();
+            manager.DoSmt2();
+
+
+
+
 
 
             Console.ReadLine();
@@ -57,8 +73,6 @@ namespace Constructors
 
 
 
-
-
         public void List()
         {
             Console.WriteLine("Listed {0} items", _count);
@@ -77,7 +91,7 @@ namespace Constructors
     {
         public Product()
         {
-            
+
         }
 
         private int _id;
@@ -96,7 +110,7 @@ namespace Constructors
         void Log();
     }
 
-    class DatabaseLogger:ILogger
+    class DatabaseLogger : ILogger
     {
         public void Log()
         {
@@ -135,11 +149,11 @@ namespace Constructors
         }
         public void Message()
         {
-            Console.WriteLine("{0} message",_entity);
+            Console.WriteLine("{0} message", _entity);
         }
     }
 
-    class PersonManager:BaseClass
+    class PersonManager : BaseClass
     {
         public PersonManager(string entity) : base(entity)
         {
@@ -152,8 +166,37 @@ namespace Constructors
         }
     }
 
+    //statik nesnelerde hiçbir şekilde instance oluşamaz.
+    //statik nesneler ortak nesnelerdir genellikle uzak durmaya çalışırız.
+    static class Teacher
+    {
+        public static int Number { get; set; }
+    }
 
+    static class Utilities
+    {
+        static Utilities()
+        {
 
+        }
+        public static void Validate()
+        {
+            Console.WriteLine("Validation is done");
+        }
+    }
+
+    class Manager
+    {
+        public static void DoSmt()
+        {
+            Console.WriteLine("Done");
+        }
+
+        public void DoSmt2()
+        {
+            Console.WriteLine("Done2");
+        }
+    }
 
 
 }
