@@ -20,14 +20,21 @@ namespace AccessModifiers
         private int id;
         //protected class seviyesinde kullanılır.  !!!tanımladığın şey inherit edildiği sınıflarda kullanılabilir.
         protected int Id;
-        public void Save(){}
-        public void Delete(){}
+        public void Save() { }
+        public void Delete() { }
     }
-    class Student:Customer
+    class Student : Customer
     {
         public void Save()
         {
             Id = 1;// Customer'den çağırıldı
         }
+    }
+
+    //default olarak class'ın aldığı internaldir!!
+    //internal class bağlı bulunduğu proje içerisinde referans ihtiyacı olmadan kullanabiliriz.
+    internal class Job
+    {
+        public String Name { get; set; }
     }
 }
