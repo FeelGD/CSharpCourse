@@ -49,5 +49,7 @@ namespace Inheritance/* Kalıtım Miras*/
         {
             public string Department { get; set; }
         }
+
+
     }
 }
