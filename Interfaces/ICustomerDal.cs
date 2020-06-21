@@ -33,6 +33,26 @@ namespace Interfaces
             Console.WriteLine("Sql Deleted");
         }
     }
+    class MySqlCustomerDal : ICustomerDal
+    {
+        public void Add()
+        {
+            Console.WriteLine("MySql Added");
+
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("MySql Updated");
+
+        }
+
+        public void Delete()
+        {
+            Console.WriteLine("MySql Deleted");
+
+        }
+    }
     class OracleCustomerDal : ICustomerDal
     {
         public void Add()
