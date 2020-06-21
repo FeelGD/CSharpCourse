@@ -10,6 +10,23 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
+            //InterfacesIntro();
+
+            /*IPerson person=new Customer();
+            interface hiçbir zaman new'lenemez
+            */
+            /*interfaceleri genellikle katmanlar arası geçişlerde kullanıyoruz amacımız
+             Bağımlılıkları en aza indirgemek.*/
+            CustomerManager customerManager=new CustomerManager();
+            customerManager.Add(new SqlServerCustomerDal());
+            customerManager.Add(new OracleCustomerDal());
+
+
+            Console.ReadLine();
+        }
+
+        private static void InterfacesIntro()
+        {
             PersonManager manager = new PersonManager();
             Customer customer = new Customer
             {
@@ -38,7 +55,6 @@ namespace Interfaces
             manager.Add(student);
             manager.Add(customer);
             manager.Add(worker);
-            Console.ReadLine();
         }
     }
     //isimlendirme 'I' ile başlatılır
