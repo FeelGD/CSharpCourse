@@ -29,7 +29,7 @@ namespace EntityFrameworkDemo
         private void SearchProducts(string key)
         {
             
-           // var result= _productDal.GetAll().Where(p=>p.Name.Contains(key)).ToList();//gelen keye göre verileri listeli şekilde getirdik ve "result" a atadık//listeye bakarak sorguladık.
+           // var result= _productDal.GetAll().Where(p=>p.Name.Contains(key)).ToList();//gelen keye göre verileri listeli şekilde getirdik ve "result" a atadık//listeye bakarak sorguladık.// Eğer bunu kullansaydık büyük küçük harf duyarlı olacaktık. //burası koleksiyona sorgu atıyor!!!
            var result = _productDal.GetByName(key);//ProductDal da bulunan GetByName ile veritabanı sorgusunu yolladık.
             dgwProducts.DataSource = result;
         }
@@ -80,6 +80,11 @@ namespace EntityFrameworkDemo
         private void tbxSearch_TextChanged(object sender, EventArgs e)//tbxSearch her tuş vuruşunda bu event çalışacak
         {
             SearchProducts(tbxSearch.Text);
+        }
+
+        private void btnGetById_Click(object sender, EventArgs e)
+        {
+            _productDal.GetById(1);
         }
     }
 }

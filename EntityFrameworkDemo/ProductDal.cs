@@ -31,6 +31,44 @@ namespace EntityFrameworkDemo
 
             }
         }
+        public List<Product> GetByUnitPrice(decimal price)
+        {
+            using (ETradeContext context = new ETradeContext()
+            )
+            {
+                //çok veri olduğu zaman performans kazancı 
+                return context.Products.Where(p => p.UnitPrice>=price).ToList();//veritabanından sorgu yapıyor //adonetteki aynı sorguyu yapar
+
+            }
+        }
+        public List<Product> GetByUnitPrice(decimal min,decimal max)
+        {
+            using (ETradeContext context = new ETradeContext()
+            )
+            {
+                //çok veri olduğu zaman performans kazancı 
+                return context.Products.Where(p => p.UnitPrice >= min&&p.UnitPrice<=max).ToList();//veritabanından sorgu yapıyor //adonetteki aynı sorguyu yapar
+
+            }
+        }
+
+        public Product GetById(int id)
+        {
+            using (ETradeContext context = new ETradeContext()
+            ) //ETradeContext pahalı bir nesne bu bağlamda method bittiği zaman bellekten atar GarbageCollector Dispose yapar direk!!!
+            {
+                //var result = context.Products.SingleOrDefault(p => p.Id == id); //1 den fazla gelirse ilk geleni verir
+                var result= context.Products.SingleOrDefault(p => p.Id == id);//1 den fazla kayıt gelirse hata fırlatır.
+               return result;
+
+            }
+        }
+
+
+
+
+
+
 
         public void Add(Product product)
         {
