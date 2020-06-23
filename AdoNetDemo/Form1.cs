@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,7 +59,7 @@ namespace AdoNetDemo
             
             Product product=new Product
             {
-                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value.ToString()),
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
                 Name = tbxNameUpdate.Text.ToString(),
                 UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
                 StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text)
@@ -68,5 +69,18 @@ namespace AdoNetDemo
             MessageBox.Show("Updated!");
             
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
+            _productDal.Delete(id);
+            LoadProducts();
+            MessageBox.Show("Deleted!");
+
+            
+
+        }
+
+        
     }
 }

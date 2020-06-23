@@ -45,6 +45,7 @@
             this.tbxStockAmountUpdate = new System.Windows.Forms.TextBox();
             this.lblNameUpdate = new System.Windows.Forms.Label();
             this.tbxUnitPriceUpdate = new System.Windows.Forms.TextBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).BeginInit();
             this.gbxAdd.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             this.dgwProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProducts.Location = new System.Drawing.Point(55, 56);
+            this.dgwProducts.Location = new System.Drawing.Point(10, 41);
             this.dgwProducts.Name = "dgwProducts";
             this.dgwProducts.Size = new System.Drawing.Size(697, 146);
             this.dgwProducts.TabIndex = 0;
@@ -117,7 +118,7 @@
             this.gbxAdd.Controls.Add(this.tbxStockAmount);
             this.gbxAdd.Controls.Add(this.lblName);
             this.gbxAdd.Controls.Add(this.tbxUnitPrice);
-            this.gbxAdd.Location = new System.Drawing.Point(55, 226);
+            this.gbxAdd.Location = new System.Drawing.Point(10, 193);
             this.gbxAdd.Name = "gbxAdd";
             this.gbxAdd.Size = new System.Drawing.Size(243, 147);
             this.gbxAdd.TabIndex = 7;
@@ -143,7 +144,7 @@
             this.gbxUpdate.Controls.Add(this.tbxStockAmountUpdate);
             this.gbxUpdate.Controls.Add(this.lblNameUpdate);
             this.gbxUpdate.Controls.Add(this.tbxUnitPriceUpdate);
-            this.gbxUpdate.Location = new System.Drawing.Point(304, 226);
+            this.gbxUpdate.Location = new System.Drawing.Point(259, 193);
             this.gbxUpdate.Name = "gbxUpdate";
             this.gbxUpdate.Size = new System.Drawing.Size(243, 147);
             this.gbxUpdate.TabIndex = 8;
@@ -208,11 +209,22 @@
             this.tbxUnitPriceUpdate.Size = new System.Drawing.Size(118, 20);
             this.tbxUnitPriceUpdate.TabIndex = 3;
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(589, 12);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(118, 23);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(716, 357);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.gbxUpdate);
             this.Controls.Add(this.gbxAdd);
             this.Controls.Add(this.dgwProducts);
@@ -247,6 +259,7 @@
         private System.Windows.Forms.TextBox tbxStockAmountUpdate;
         private System.Windows.Forms.Label lblNameUpdate;
         private System.Windows.Forms.TextBox tbxUnitPriceUpdate;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
 
