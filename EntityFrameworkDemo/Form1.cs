@@ -26,6 +26,13 @@ namespace EntityFrameworkDemo
         {
             dgwProducts.DataSource = _productDal.GetAll();
         }
+        private void SearchProducts(string key)
+        {
+            
+           // var result= _productDal.GetAll().Where(p=>p.Name.Contains(key)).ToList();//gelen keye göre verileri listeli şekilde getirdik ve "result" a atadık//listeye bakarak sorguladık.
+           var result = _productDal.GetByName(key);//ProductDal da bulunan GetByName ile veritabanı sorgusunu yolladık.
+            dgwProducts.DataSource = result;
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -68,6 +75,11 @@ namespace EntityFrameworkDemo
             });
             LoadProducts();
             MessageBox.Show("Deleted!");
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)//tbxSearch her tuş vuruşunda bu event çalışacak
+        {
+            SearchProducts(tbxSearch.Text);
         }
     }
 }
