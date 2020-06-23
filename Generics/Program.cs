@@ -16,14 +16,16 @@ namespace Generics
             {
                 Console.WriteLine(item);
             }
+
             List<Customer> result2 = utilities.BuildList<Customer>(new Customer());
 
             foreach (var item in result2)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.FirstName);
 
 
             }
+
             Console.ReadLine();
 
         }
@@ -36,26 +38,43 @@ namespace Generics
             }
         }
 
-        class Product
+        class Product:IEntity
         {
 
         }
+
         interface IProductDal : IRepository<Product>
         {
 
         }
 
-        class Customer
+        class Customer:IEntity
         {
             public string FirstName { get; set; }
         }
+
         interface ICustomerDal : IRepository<Customer>
         {
             void Custom();
-
         }
+        interface IStudentDal : IRepository<Student>
+        {
+            void Custom();
+        }
+
+        class Student:IEntity
+        {
+            
+        }
+
+        interface IEntity
+        {
+            
+        }
+
+
         //sıklıkla yaptığımız operasyonları nesne tarzında değiştirebiliriz.
-        interface IRepository<T>//T=type
+        interface IRepository<T> where T : class ,IEntity ,new()  //T=type //class ifaderi referans tip demektir//new() new'lenebilir demektir//IEntityden implement edilebilmeli
         {
             List<T> GetAll();
             T Get(int id);
@@ -127,4 +146,4 @@ namespace Generics
 
 
     }
- 
+}
