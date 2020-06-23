@@ -1,0 +1,15 @@
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFrameworkDemo.exe.config
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFrameworkDemo.exe
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFrameworkDemo.pdb
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFramework.dll
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFramework.xml
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csprojAssemblyReference.cache
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.Form1.resources
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.Properties.Resources.resources
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.GenerateResource.cache
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.CoreCompileInputs.cache
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.CopyComplete
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.exe
+C:\Users\aiyil\source\repos\CSharpCourse\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.pdb
