@@ -11,17 +11,20 @@ namespace AdoNetDemo
     //veritabanı operasyonları
     public class ProductDal
     {
+        SqlConnection _connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB;initial catalog=ETrade;integrated security=true");//bağlantı nesnesi oluşturuldu
+        //"_" kullanmamızın nedeni methodların dışında kullandık
+
+
+
         //ilk ürünlerin listelenmesi
         //kurumsal bir mimari yaparken normalde interface kullanmamız gerekiyor fakat adonet amaçlı olduğu için normal yapacağız
         public List<Product> GetAll()
         {
             //ürünleri listeyeceğiz
-            SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB;initial catalog=ETrade;integrated security=true");//bağlantı nesnesi oluşturuldu
-            if (connection.State == ConnectionState.Closed)//eğer connection state kapalı ise bağlantıyı aç
-            {
-                connection.Open();//bağlantıyı açtık
-            }
-            SqlCommand command = new SqlCommand("Select * from Products", connection);//komut oluşturuldu
+
+
+            ConnectionControl();
+            SqlCommand command = new SqlCommand("Select * from Products", _connection);//komut oluşturuldu
 
             //executeReader select yaptığımız için tablo sonucu için sadece
             SqlDataReader reader = command.ExecuteReader(); //okuma komutu
@@ -44,20 +47,25 @@ namespace AdoNetDemo
 
 
             reader.Close();
-            connection.Close();
+            _connection.Close();
             return products;
 
 
         }
+
+        private void ConnectionControl()
+        {
+            if (_connection.State == ConnectionState.Closed) //eğer connection state kapalı ise bağlantıyı aç
+            {
+                _connection.Open(); //bağlantıyı açtık
+            }
+        }
+
         public DataTable GetAll2()
         {
-            //ürünleri listeyeceğiz
-            SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB;initial catalog=ETrade;integrated security=true");//bağlantı nesnesi oluşturuldu
-            if (connection.State == ConnectionState.Closed)//eğer connection state kapalı ise bağlantıyı aç
-            {
-                connection.Open();//bağlantıyı açtık
-            }
-            SqlCommand command = new SqlCommand("Select * from Products", connection);//komut oluşturuldu
+            ConnectionControl();
+
+            SqlCommand command = new SqlCommand("Select * from Products", _connection);//komut oluşturuldu
 
             //executeReader select yaptığımız için tablo sonucu için sadece
             SqlDataReader reader = command.ExecuteReader(); //okuma komutu
@@ -65,12 +73,25 @@ namespace AdoNetDemo
             DataTable dataTable = new DataTable();
             dataTable.Load(reader); //DataTable oluşturduk ve reader ile doldurduk
             reader.Close();
-            connection.Close();
+            _connection.Close();
             return dataTable;
 
             //DataTable artık kullanılmıyor ki kullanılmamalı. Memory açısından pahalıdır. 
 
         }
 
+        public void Add(Product product)
+        {
+            ConnectionControl();
+            SqlCommand command=new SqlCommand("Insert into Products values(@name,@UnitPrice,@StockAmount)",_connection);
+            command.Parameters.AddWithValue("@Name", product.Name);
+            command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+            command.Parameters.AddWithValue("@StockAmount", product.StockAmount);
+            command.ExecuteNonQuery();
+
+            _connection.Close();
+
+
+        }
     }
 }

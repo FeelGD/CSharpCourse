@@ -16,11 +16,29 @@ namespace AdoNetDemo
         {
             InitializeComponent();
         }
+            ProductDal _productDal=new ProductDal();//method içerisinde olmadığı için "_" ekledik
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ProductDal productDal=new ProductDal();
-            dgwProducts.DataSource = productDal.GetAll();
+            LoadProducts();
+        }
+
+        private void LoadProducts()
+        {
+            dgwProducts.DataSource = _productDal.GetAll();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            _productDal.Add(new Product
+            {
+                Name = tbxName.Text,
+                UnitPrice = Convert.ToDecimal(tbxUnitPrice.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmount.Text)
+            });
+            MessageBox.Show("Product Added");
+            LoadProducts();
+
         }
     }
 }
