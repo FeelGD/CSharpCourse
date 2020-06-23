@@ -16,7 +16,7 @@ namespace AdoNetDemo
         {
             InitializeComponent();
         }
-            ProductDal _productDal=new ProductDal();//method içerisinde olmadığı için "_" ekledik
+        ProductDal _productDal = new ProductDal();//method içerisinde olmadığı için "_" ekledik
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -39,6 +39,34 @@ namespace AdoNetDemo
             MessageBox.Show("Product Added");
             LoadProducts();
 
+        }
+
+        private void dgwProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show(dgwProducts.CurrentRow.Cells[0].Value.ToString());
+            tbxNameUpdate.Text = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+            tbxUnitPriceUpdate.Text = dgwProducts.CurrentRow.Cells[2].Value.ToString();
+            tbxStockAmountUpdate.Text = dgwProducts.CurrentRow.Cells[3].Value.ToString();
+
+
+
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            
+            Product product=new Product
+            {
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value.ToString()),
+                Name = tbxNameUpdate.Text.ToString(),
+                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text)
+            };
+            _productDal.Update(product);
+            LoadProducts();
+            MessageBox.Show("Updated!");
+            
         }
     }
 }
